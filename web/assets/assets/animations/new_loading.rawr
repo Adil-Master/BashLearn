@@ -1,0 +1,414 @@
+{
+    "assets": {
+        "__type__": "Assets",
+        "colors": {
+            "__type__": "NamedColorList",
+            "name": "",
+            "uuid": "d9a84f3c-7676-40d5-a773-b7dfaa241bfc",
+            "values": [
+            ]
+        },
+        "compositions": {
+            "__type__": "CompositionList",
+            "name": "",
+            "uuid": "d048e68a-2eea-48ce-a5bc-57828391de01",
+            "values": [
+                {
+                    "__type__": "Composition",
+                    "animation": {
+                        "__type__": "AnimationContainer",
+                        "first_frame": 0,
+                        "last_frame": 43
+                    },
+                    "fps": 60,
+                    "group_color": "#00000000",
+                    "height": 512,
+                    "locked": false,
+                    "name": "Композиция",
+                    "shapes": [
+                        {
+                            "__type__": "Layer",
+                            "animation": {
+                                "__type__": "AnimationContainer",
+                                "first_frame": 0,
+                                "last_frame": 43
+                            },
+                            "auto_orient": false,
+                            "group_color": "#00000000",
+                            "locked": false,
+                            "mask": {
+                                "__type__": "MaskSettings",
+                                "inverted": false,
+                                "mask": "NoMask"
+                            },
+                            "name": "Слой",
+                            "opacity": {
+                                "value": 1
+                            },
+                            "parent": null,
+                            "render": true,
+                            "shapes": [
+                                {
+                                    "__type__": "Group",
+                                    "auto_orient": false,
+                                    "group_color": "#00000000",
+                                    "locked": false,
+                                    "name": "Эллипс 1",
+                                    "opacity": {
+                                        "value": 1
+                                    },
+                                    "shapes": [
+                                        {
+                                            "__type__": "Fill",
+                                            "color": {
+                                                "value": "#00d34a"
+                                            },
+                                            "fill_rule": "NonZero",
+                                            "group_color": "#00000000",
+                                            "locked": false,
+                                            "name": "Заливка",
+                                            "opacity": {
+                                                "value": 1
+                                            },
+                                            "use": null,
+                                            "uuid": "67f1bdea-46ca-4926-bf6b-af28a7fc884a",
+                                            "visible": true
+                                        },
+                                        {
+                                            "__type__": "Stroke",
+                                            "cap": "RoundCap",
+                                            "color": {
+                                                "value": "#197600"
+                                            },
+                                            "group_color": "#00000000",
+                                            "join": "MiterJoin",
+                                            "locked": false,
+                                            "miter_limit": 4,
+                                            "name": "Обводка",
+                                            "opacity": {
+                                                "value": 1
+                                            },
+                                            "use": null,
+                                            "uuid": "73fc155a-c4b9-4603-b7f1-6068550d7216",
+                                            "visible": true,
+                                            "width": {
+                                                "value": 20
+                                            }
+                                        },
+                                        {
+                                            "__type__": "Ellipse",
+                                            "group_color": "#00000000",
+                                            "locked": false,
+                                            "name": "Эллипс 6",
+                                            "position": {
+                                                "value": {
+                                                    "x": 165.47037535721762,
+                                                    "y": 326.5864369419128
+                                                }
+                                            },
+                                            "reversed": false,
+                                            "size": {
+                                                "value": {
+                                                    "height": 194.7380869565213,
+                                                    "width": 185.92278260869523
+                                                }
+                                            },
+                                            "uuid": "6e83524d-6325-4e15-8ccd-8bd188f784d3",
+                                            "visible": true
+                                        }
+                                    ],
+                                    "transform": {
+                                        "__type__": "Transform",
+                                        "anchor_point": {
+                                            "value": {
+                                                "x": 165.47037535721762,
+                                                "y": 326.5864369419128
+                                            }
+                                        },
+                                        "position": {
+                                            "keyframes": [
+                                                {
+                                                    "after": {
+                                                        "x": 0.3333333333333333,
+                                                        "y": 1.3333333333333333
+                                                    },
+                                                    "before": {
+                                                        "x": 0.3333333333333333,
+                                                        "y": 0
+                                                    },
+                                                    "point_type": 0,
+                                                    "tan_in": {
+                                                        "x": 150,
+                                                        "y": 256
+                                                    },
+                                                    "tan_out": {
+                                                        "x": 150,
+                                                        "y": 256
+                                                    },
+                                                    "time": 0,
+                                                    "value": {
+                                                        "x": 150,
+                                                        "y": 256
+                                                    }
+                                                },
+                                                {
+                                                    "after": {
+                                                        "x": 1,
+                                                        "y": 1
+                                                    },
+                                                    "before": {
+                                                        "x": 0.3333333333333333,
+                                                        "y": 0
+                                                    },
+                                                    "point_type": 0,
+                                                    "tan_in": {
+                                                        "x": 370,
+                                                        "y": 256
+                                                    },
+                                                    "tan_out": {
+                                                        "x": 370,
+                                                        "y": 256
+                                                    },
+                                                    "time": 43,
+                                                    "value": {
+                                                        "x": 370,
+                                                        "y": 256
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "rotation": {
+                                            "value": 0
+                                        },
+                                        "scale": {
+                                            "value": {
+                                                "x": 1,
+                                                "y": 1
+                                            }
+                                        }
+                                    },
+                                    "uuid": "57918bbe-8f4c-4114-9f32-9e951c8c4c79",
+                                    "visible": true
+                                },
+                                {
+                                    "__type__": "Group",
+                                    "auto_orient": false,
+                                    "group_color": "#00000000",
+                                    "locked": false,
+                                    "name": "Эллипс 2",
+                                    "opacity": {
+                                        "value": 1
+                                    },
+                                    "shapes": [
+                                        {
+                                            "__type__": "Fill",
+                                            "color": {
+                                                "value": "#00d34a"
+                                            },
+                                            "fill_rule": "NonZero",
+                                            "group_color": "#00000000",
+                                            "locked": false,
+                                            "name": "Заливка 3",
+                                            "opacity": {
+                                                "value": 1
+                                            },
+                                            "use": null,
+                                            "uuid": "2afb0ab9-12ed-4127-b99e-c5f9c112434c",
+                                            "visible": true
+                                        },
+                                        {
+                                            "__type__": "Stroke",
+                                            "cap": "RoundCap",
+                                            "color": {
+                                                "value": "#197600"
+                                            },
+                                            "group_color": "#00000000",
+                                            "join": "MiterJoin",
+                                            "locked": false,
+                                            "miter_limit": 4,
+                                            "name": "Обводка 3",
+                                            "opacity": {
+                                                "value": 1
+                                            },
+                                            "use": null,
+                                            "uuid": "8e0ef518-6738-42f3-b32b-64b07fc248d1",
+                                            "visible": true,
+                                            "width": {
+                                                "value": 20
+                                            }
+                                        },
+                                        {
+                                            "__type__": "Ellipse",
+                                            "group_color": "#00000000",
+                                            "locked": false,
+                                            "name": "Эллипс 7",
+                                            "position": {
+                                                "value": {
+                                                    "x": 165.47037535721762,
+                                                    "y": 326.5864369419128
+                                                }
+                                            },
+                                            "reversed": false,
+                                            "size": {
+                                                "value": {
+                                                    "height": 194.7380869565213,
+                                                    "width": 185.92278260869523
+                                                }
+                                            },
+                                            "uuid": "ab50abf3-3902-40a8-8b65-279e1349e11e",
+                                            "visible": true
+                                        }
+                                    ],
+                                    "transform": {
+                                        "__type__": "Transform",
+                                        "anchor_point": {
+                                            "value": {
+                                                "x": 165.47037535721762,
+                                                "y": 326.5864369419128
+                                            }
+                                        },
+                                        "position": {
+                                            "keyframes": [
+                                                {
+                                                    "after": {
+                                                        "x": 0.3333333333333333,
+                                                        "y": 1.3333333333333333
+                                                    },
+                                                    "before": {
+                                                        "x": 0.3333333333333333,
+                                                        "y": 0
+                                                    },
+                                                    "point_type": 0,
+                                                    "tan_in": {
+                                                        "x": 370,
+                                                        "y": 256
+                                                    },
+                                                    "tan_out": {
+                                                        "x": 370,
+                                                        "y": 256
+                                                    },
+                                                    "time": 0,
+                                                    "value": {
+                                                        "x": 370,
+                                                        "y": 256
+                                                    }
+                                                },
+                                                {
+                                                    "after": {
+                                                        "x": 1,
+                                                        "y": 1
+                                                    },
+                                                    "before": {
+                                                        "x": 0.3333333333333333,
+                                                        "y": 0
+                                                    },
+                                                    "point_type": 0,
+                                                    "tan_in": {
+                                                        "x": 150,
+                                                        "y": 256
+                                                    },
+                                                    "tan_out": {
+                                                        "x": 150,
+                                                        "y": 256
+                                                    },
+                                                    "time": 43,
+                                                    "value": {
+                                                        "x": 150,
+                                                        "y": 256
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "rotation": {
+                                            "value": 0
+                                        },
+                                        "scale": {
+                                            "value": {
+                                                "x": 1,
+                                                "y": 1
+                                            }
+                                        }
+                                    },
+                                    "uuid": "f5208d27-56b0-4c23-8319-cd5cc6d9686b",
+                                    "visible": true
+                                }
+                            ],
+                            "transform": {
+                                "__type__": "Transform",
+                                "anchor_point": {
+                                    "value": {
+                                        "x": 256,
+                                        "y": 256
+                                    }
+                                },
+                                "position": {
+                                    "value": {
+                                        "x": 256,
+                                        "y": 256
+                                    }
+                                },
+                                "rotation": {
+                                    "value": 0
+                                },
+                                "scale": {
+                                    "value": {
+                                        "x": 1,
+                                        "y": 1
+                                    }
+                                }
+                            },
+                            "uuid": "a51d86e8-a2be-4303-80cc-e372d4eaa9fc",
+                            "visible": true
+                        }
+                    ],
+                    "uuid": "03439313-224f-41fa-b0d9-c5612d397e5c",
+                    "visible": true,
+                    "width": 512
+                }
+            ]
+        },
+        "fonts": {
+            "__type__": "FontList",
+            "name": "",
+            "uuid": "bf00467f-ecc3-4668-8f0f-7e308f433be2",
+            "values": [
+            ]
+        },
+        "gradient_colors": {
+            "__type__": "GradientColorsList",
+            "name": "",
+            "uuid": "1d897995-66a7-4867-a1e6-ef55af271f5e",
+            "values": [
+            ]
+        },
+        "gradients": {
+            "__type__": "GradientList",
+            "name": "",
+            "uuid": "2f03ec3e-4302-4906-a37d-7a348730f05f",
+            "values": [
+            ]
+        },
+        "images": {
+            "__type__": "BitmapList",
+            "name": "",
+            "uuid": "5c5f46bb-8a93-4d0d-81d0-d19e61b03c05",
+            "values": [
+            ]
+        },
+        "name": "",
+        "uuid": "58ad6301-6525-4c10-a42b-6c8c84d5f86f"
+    },
+    "format": {
+        "format_version": 8,
+        "generator": "Glaxnimate",
+        "generator_version": "0.6.0-git-d2da67a"
+    },
+    "info": {
+        "author": "",
+        "description": "",
+        "keywords": [
+        ]
+    },
+    "metadata": {
+    }
+}
