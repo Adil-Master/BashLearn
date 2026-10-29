@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Пользовательское соглашение — BashLearn</title>
+
+    <!-- Шрифт Tilda Sans + запасной -->
+    <style>
+        @import url('https://static.tildacdn.com/css/tilda-sans.css');
+        body {
+            font-family: 'Tilda Sans', 'Inter', sans-serif;
+        }
+    </style>
+
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tilda Sans', 'Inter', sans-serif;
+        }
+
+        body {
+            background: #FFFFFF;
+            color: #20753D;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Шапка */
+        header {
+            background: #FFFFFF;
+            padding: 20px 0;
+            border-bottom: 3px solid #c8ffda;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: #20753D;
+            text-decoration: none;
+        }
+        .logo span {
+            color: #52D47A;
+        }
+
+        nav a {
+            margin-left: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            color: #20753D;
+            transition: color 0.2s;
+        }
+        nav a:hover {
+            color: #52D47A;
+        }
+
+        /* Основной контент */
+        .terms-section {
+            padding: 60px 0 80px;
+            background: #FFFFFF;
+        }
+
+        .terms-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .terms-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .terms-header h1 {
+            font-size: 36px;
+            font-weight: 800;
+            color: #20753D;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .terms-header .app-name {
+            font-size: 18px;
+            font-weight: 600;
+            color: #52D47A;
+            margin-bottom: 8px;
+        }
+
+        .terms-header .date {
+            font-size: 14px;
+            color: #20753D;
+            opacity: 0.6;
+        }
+
+        /* Блок предупреждения */
+        .warning-box {
+            background: #c8ffda;
+            border-left: 5px solid #52D47A;
+            padding: 24px;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 40px;
+            color: #20753D;
+            font-size: 16px;
+        }
+
+        /* Типографика контента */
+        .terms-content h2 {
+            font-size: 22px;
+            font-weight: 800;
+            color: #20753D;
+            margin-top: 40px;
+            margin-bottom: 16px;
+        }
+
+        .terms-content p {
+            margin-bottom: 14px;
+            font-size: 16px;
+            color: #20753D;
+            opacity: 0.85;
+        }
+
+        .terms-content ul {
+            margin-bottom: 20px;
+            padding-left: 24px;
+        }
+
+        .terms-content li {
+            margin-bottom: 8px;
+            font-size: 16px;
+            color: #20753D;
+            opacity: 0.85;
+        }
+
+        .terms-content strong {
+            font-weight: 700;
+            color: #20753D;
+        }
+
+        .terms-content a {
+            color: #41B258;
+            font-weight: 600;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+        .terms-content a:hover {
+            color: #20753D;
+        }
+
+        .terms-footer-note {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid #e8f5ee;
+            text-align: center;
+            font-style: italic;
+            font-size: 16px;
+            color: #20753D;
+            opacity: 0.8;
+        }
+
+        /* Футер */
+        footer {
+            background: #FFFFFF;
+            padding: 40px 0;
+            border-top: 3px solid #c8ffda;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-links a {
+            margin: 0 15px;
+            color: #20753D;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .footer-links a:hover {
+            color: #52D47A;
+        }
+
+        .copyright {
+            color: #20753D;
+            opacity: 0.6;
+            font-size: 14px;
+        }
+
+        /* Адаптив */
+        @media (max-width: 768px) {
+            .terms-header h1 {
+                font-size: 28px;
+            }
+            nav a {
+                margin-left: 15px;
+            }
+            .terms-content h2 {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-inner {
+                flex-direction: column;
+                gap: 15px;
+            }
+            nav a {
+                margin: 0 10px;
+            }
+            .footer-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-links a {
+                display: inline-block;
+                margin: 5px 10px;
+            }
+            .terms-section {
+                padding: 40px 0 60px;
+            }
+            .warning-box {
+                padding: 20px;
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Шапка -->
+    <header>
+        <div class="container header-inner">
+            <a href="index.html" class="logo">Bash<span>Learn</span></a>
+            <nav>
+                <a href="index.html">Главная</a>
+                <a href="index.html#download">Скачать</a>
+                <a href="about.html">О нас</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Контент -->
+    <section class="terms-section">
+        <div class="container">
+            <div class="terms-content">
+                
+                <div class="terms-header">
+                    <h1>Пользовательское соглашение</h1>
+                    <div class="app-name">Программное обеспечение: BashLearn</div>
+                    <div class="date">Дата последней редакции: 29 октября 2026 г.</div>
+                </div>
+
+                <div class="warning-box">
+                    <strong>ВАЖНО:</strong> Начало использования кроссплатформенного приложения <strong>BashLearn</strong> (включая нажатие кнопки «Принять», регистрацию учетной записи или непосредственное использование любых функций программного обеспечения на любом типе устройств) означает ваше полное, безоговорочное и выраженное согласие с условиями настоящего Соглашения. Если вы не принимаете условия в полном объеме, вы обязаны немедленно прекратить использование приложения и удалить его со всех своих устройств.
+                </div>
+
+                <h2>1. Общие положения</h2>
+                <ul>
+                    <li><strong>1.1.</strong> Приложение <strong>BashLearn</strong> представляет собой кроссплатформенное программное обеспечение, предоставляемое исключительно в ознакомительных, учебных и просветительских целях.</li>
+                    <li><strong>1.2.</strong> На текущий момент программное обеспечение предоставляется на безвозмездной основе. Разработчик оставляет за собой право в одностороннем порядке изменять модель распространения приложения, внедрять элементы монетизации, тарифные планы или платные функции в будущих версиях.</li>
+                    <li><strong>1.3.</strong> Разработчик оставляет за собой право по собственному усмотрению модифицировать функционал, пользовательский интерфейс, архитектуру и содержание приложения в любое время без предварительного уведомления пользователей.</li>
+                </ul>
+
+                <h2>2. Ограничение ответственности и академический отказ</h2>
+                <ul>
+                    <li><strong>2.1.</strong> Программное обеспечение предоставляется на общепринятых в мировой практике условиях <strong>«как есть» (as is)</strong>. Разработчик не предоставляет никаких явных или подразумеваемых гарантий относительно стабильности, безошибочности, непрерывности работы или совместимости приложения с операционными системами и аппаратным обеспечением устройств пользователя.</li>
+                    <li>
+                        <strong>2.2. Разработчик не несет ответственности</strong> за любые прямые или косвенные убытки, включая, но не ограничиваясь:
+                        <ul>
+                            <li>Технические сбои в работе кода, «вылеты», зависания или аварийные завершения программы (краши);</li>
+                            <li><strong>Полную или частичную потерю прогресса обучения</strong>, пользовательских настроек, истории ответов или иных данных;</li>
+                            <li>Любой ущерб, нанесенный аппаратному или программному обеспечению устройства пользователя в процессе эксплуатации приложения.</li>
+                        </ul>
+                    </li>
+                    <li><strong>2.3. Отказ от гарантий образовательного результата:</strong> Разработчик предоставляет учебные материалы для самостоятельного изучения, однако <strong>не гарантирует достижение Пользователем какого-либо конкретного уровня квалификации</strong>, академических результатов, овладения языковыми навыками или достижения профессиональной компетенции в результате полного или частичного прохождения учебных курсов.</li>
+                    <li><strong>2.4. Модификация учебных материалов:</strong> Учебные материалы и сопутствующие аудиозаписи могут содержать технические неточности, опечатки или лингвистические погрешности. Разработчик оставляет за собой право в любой момент <strong>изменять, заменять, удалять или дополнять уроки</strong> и любые другие информационные блоки с целью повышения актуальности и качества контента.</li>
+                </ul>
+
+                <h2>3. Режим хранения данных</h2>
+                <ul>
+                    <li><strong>3.1.</strong> Программное обеспечение функционирует в <strong>абсолютно локальном режиме</strong>. Все 100% данных (включая индивидуальный прогресс, внутреннюю статистику и параметры конфигурации) генерируются и сохраняются непосредственно в локальном хранилище используемого устройства.</li>
+                    <li><strong>3.2.</strong> Разработчик не осуществляет сбор, хранение, обработку или передачу персональных и статистических данных пользователей на внешние серверные мощности.</li>
+                    <li><strong>3.3. Информационное уведомление:</strong> Ввиду локальной архитектуры хранения данных, при удалении приложения или сбросе настроек операционной системы все связанные данные стираются безвозвратно. Разработчик не имеет технической возможности произвести восстановление утраченного прогресса обучения.</li>
+                </ul>
+
+                <h2>4. Интеллектуальная собственность</h2>
+                <ul>
+                    <li><strong>4.1.</strong> Учебные материалы, элементы интерфейса, аудиозаписи и исходный код программного обеспечения созданы Разработчиком либо используются на законных основаниях.</li>
+                    <li><strong>4.2.</strong> Приложение разработано на основе материалов печатного издания. Использование текста и сопутствующих материалов полностью и надлежащим образом согласовано с законным правообладателем.</li>
+                    <li><strong>4.3.</strong> Запрещается копирование, тиражирование, распространение, коммерческое использование или декомпиляция материалов приложения (включая аудиофайлы, текстовый контент и программную логику) без предварительного письменного согласия Разработчика и правообладателей.</li>
+                </ul>
+
+                <h2>5. Обязанности сторон</h2>
+                <ul>
+                    <li><strong>Пользователь обязуется:</strong> использовать программное обеспечение строго в законных целях, не осуществлять попыток обратной разработки (декомпиляции), модификации исполняемого кода или обхода защитных механизмов интерфейса.</li>
+                    <li><strong>Разработчик обязуется:</strong> прилагать разумные усилия для устранения критических дефектов и оптимизации работы приложения по мере технической и практической возможности.</li>
+                </ul>
+
+                <h2>6. Заключительные положения</h2>
+                <ul>
+                    <li><strong>6.1.</strong> Настоящее Соглашение может быть изменено Разработчиком в одностороннем порядке. Новая редакция вступает в силу с момента ее публикации внутри программного интерфейса.</li>
+                    <li><strong>6.2.</strong> Направление предложений, сообщений о выявленных технических ошибках или вопросов правового характера осуществляется по адресу электронной почты: <a href="mailto:bashlearn@yandex.ru">bashlearn@yandex.ru</a>.</li>
+                </ul>
+
+                <div class="terms-footer-note">
+                    Благодарим вас за участие в развитии проекта BashLearn.
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer>
+        <div class="container footer-inner">
+            <div class="logo" style="font-size: 20px;">Bash<span>Learn</span></div>
+            <div class="footer-links">
+                <a href="about.html">О нас</a>
+                <a href="mailto:bashlearn@yandex.ru">Контакты</a>
+                <a href="terms.html">Пользовательское соглашение</a>
+            </div>
+            <div class="copyright">© 2026 BashLearn</div>
+        </div>
+    </footer>
+
+</body>
+</html>
