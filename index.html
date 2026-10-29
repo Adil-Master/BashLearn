@@ -1,489 +1,752 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BashLearn — демо-версия для тестирования</title>
-  <meta name="description" content="BashLearn — бесплатное интерактивное приложение для изучения башкирского языка. Демо-версия для экспертного тестирования.">
-  <style>
-    :root {
-      --blue: #0055A4;
-      --green: #00A86B;
-      --dark: #0f172a;
-      --muted: #64748b;
-      --bg: #f8fafc;
-      --card: #ffffff;
-      --border: #e2e8f0;
-      --radius: 16px;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BashLearn – Изучайте башкирский язык</title>
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    <style>
+        @import url('https://static.tildacdn.com/css/tilda-sans.css');
+        body { font-family: 'Tilda Sans', 'Inter', sans-serif; }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
-    html { scroll-behavior: smooth; }
+    <style>
+        html { scroll-behavior: smooth; }
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", Roboto, "Helvetica Neue", Arial, sans-serif;
-      background: var(--bg);
-      color: var(--dark);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    .container {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
+        body {
+            font-family: 'Tilda Sans', 'Inter', sans-serif;
+            background: #FFFFFF;
+            color: #20753D;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
 
-    /* Hero */
-    .hero {
-      background: linear-gradient(135deg, var(--blue) 0%, #003d7a 100%);
-      color: #fff;
-      padding: 80px 0 100px;
-      position: relative;
-      overflow: hidden;
-    }
+        .container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
 
-    .hero::after {
-      content: "";
-      position: absolute;
-      bottom: -50px;
-      right: -50px;
-      width: 300px;
-      height: 300px;
-      background: var(--green);
-      border-radius: 50%;
-      opacity: 0.15;
-    }
+        /* Header */
+        header {
+            background: #FFFFFF;
+            padding: 20px 0;
+            border-bottom: 1px solid #e8f5ee;
+        }
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: #20753D;
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+        .logo span { color: #52D47A; }
+        nav { display: flex; gap: 4px; }
+        nav a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #20753D;
+            font-size: 15px;
+            padding: 8px 14px;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+        nav a:hover { background: #f4fdf7; }
 
-    .hero::before {
-      content: "";
-      position: absolute;
-      top: -80px;
-      left: -80px;
-      width: 250px;
-      height: 250px;
-      background: #fff;
-      border-radius: 50%;
-      opacity: 0.06;
-    }
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 28px;
+            border-radius: 10px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.1s;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-family: inherit;
+        }
+        .btn:active { transform: translateY(1px); }
 
-    .hero-content { position: relative; z-index: 1; }
+        .btn-primary { background: #52D47A; color: #FFFFFF; }
+        .btn-primary:hover { background: #41B258; }
 
-    .logo {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 20px;
-      font-weight: 700;
-      margin-bottom: 32px;
-      letter-spacing: -0.02em;
-    }
+        .btn-outline {
+            background: transparent;
+            color: #20753D;
+            box-shadow: inset 0 0 0 2px #20753D;
+        }
+        .btn-outline:hover { background: #20753D; color: #FFFFFF; }
 
-    .logo-mark {
-      width: 40px;
-      height: 40px;
-      background: #fff;
-      color: var(--blue);
-      border-radius: 10px;
-      display: grid;
-      place-items: center;
-      font-size: 22px;
-      font-weight: 800;
-    }
+        .btn-light { background: #FFFFFF; color: #20753D; }
+        .btn-light:hover { background: #c8ffda; }
 
-    h1 {
-      font-size: clamp(32px, 5vw, 52px);
-      line-height: 1.15;
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      margin-bottom: 20px;
-      max-width: 720px;
-    }
+        .btn-group { display: flex; flex-wrap: wrap; gap: 12px; }
 
-    .hero p {
-      font-size: clamp(16px, 2vw, 19px);
-      opacity: 0.9;
-      max-width: 620px;
-      margin-bottom: 40px;
-    }
+        /* Hero */
+        .hero { padding: 80px 0 100px; background: #c8ffda; }
+        .hero-inner {
+            display: grid;
+            grid-template-columns: 1.15fr 1fr;
+            align-items: center;
+            gap: 48px;
+        }
 
-    .btn-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-    }
+        .hero-tag {
+            display: inline-block;
+            background: #FFFFFF;
+            color: #20753D;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 22px;
+        }
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 16px 28px;
-      border-radius: var(--radius);
-      font-weight: 600;
-      font-size: 16px;
-      text-decoration: none;
-      transition: transform 0.15s, box-shadow 0.15s;
-      border: 2px solid transparent;
-    }
+        .hero-text h1 {
+            font-size: clamp(34px, 5vw, 54px);
+            font-weight: 800;
+            color: #20753D;
+            line-height: 1.08;
+            letter-spacing: -1.2px;
+            margin-bottom: 22px;
+            max-width: 560px;
+        }
+        .hero-text p {
+            font-size: 18px;
+            color: #20753D;
+            margin-bottom: 32px;
+            opacity: 0.82;
+            max-width: 500px;
+        }
 
-    .btn:hover { transform: translateY(-2px); }
+        /* Phone Mockup - УВЕЛИЧЕН */
+        .hero-image { display: flex; justify-content: center; }
+        .phone {
+            width: 320px;
+            height: 640px;
+            background: #20753D;
+            border-radius: 48px;
+            padding: 14px;
+            box-shadow:
+                0 30px 60px rgba(32, 117, 61, 0.22),
+                0 10px 20px rgba(32, 117, 61, 0.12);
+            position: relative;
+        }
+        .phone::before {
+            content: '';
+            position: absolute;
+            top: 22px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 4px;
+            z-index: 2;
+        }
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: #FFFFFF;
+            border-radius: 36px;
+            padding: 44px 18px 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        /* App UI mimicking screenshot */
+        .app-top-bar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 4px;
+        }
+        .app-menu-btn {
+            width: 34px;
+            height: 34px;
+            background: #52D47A;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 3px;
+        }
+        .app-menu-btn span {
+            display: block;
+            width: 14px;
+            height: 2px;
+            background: #FFFFFF;
+            border-radius: 1px;
+        }
+        .app-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #20753D;
+        }
 
-    .btn-primary {
-      background: var(--green);
-      color: #fff;
-      box-shadow: 0 8px 24px rgba(0, 168, 107, 0.35);
-    }
+        .app-welcome {
+            background: #52D47A;
+            border-radius: 16px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            color: #FFFFFF;
+        }
+        .app-star-badge {
+            width: 56px;
+            height: 56px;
+            background: #20753D;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            flex-shrink: 0;
+        }
+        .app-star-badge i { color: #FFD700; font-size: 26px; }
+        .app-star-badge span {
+            position: absolute;
+            font-size: 12px;
+            font-weight: 800;
+            color: #000;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .app-welcome-text { flex: 1; }
+        .app-welcome-text .greeting {
+            font-size: 15px;
+            font-weight: 500;
+            margin-bottom: 4px;
+            line-height: 1.2;
+        }
+        .app-streak {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 15px;
+            font-weight: 700;
+        }
+        .app-streak i { color: #FFA500; font-size: 16px; }
 
-    .btn-primary:hover { box-shadow: 0 12px 32px rgba(0, 168, 107, 0.45); }
+        .app-lesson-card {
+            background: #41B258;
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            overflow: hidden;
+        }
+        .app-lesson-header {
+            background: #20753D;
+            color: #FFFFFF;
+            padding: 12px 16px;
+            font-size: 14px;
+            font-weight: 600;
+            text-align: center;
+            line-height: 1.3;
+        }
+        .app-lesson-body {
+            padding: 16px;
+            color: #FFFFFF;
+            font-size: 13px;
+            line-height: 1.5;
+            text-align: center;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .app-stats-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+            font-size: 12px;
+        }
+        .app-stats-table td {
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 7px 10px;
+        }
+        .app-stats-table td:last-child {
+            text-align: center;
+            font-weight: 600;
+        }
 
-    .btn-secondary {
-      background: transparent;
-      color: #fff;
-      border-color: rgba(255, 255, 255, 0.4);
-    }
+        .app-bottom-nav {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: auto;
+        }
+        .app-nav-arrow {
+            width: 44px;
+            height: 44px;
+            background: #52D47A;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FFFFFF;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+        .app-nav-btn {
+            flex: 1;
+            background: #52D47A;
+            color: #FFFFFF;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 12px;
+            border-radius: 24px;
+            text-align: center;
+        }
 
-    .btn-secondary:hover { border-color: #fff; background: rgba(255, 255, 255, 0.1); }
+        /* Section heads */
+        .section-title {
+            font-size: clamp(28px, 3.5vw, 40px);
+            font-weight: 800;
+            letter-spacing: -0.8px;
+            color: #20753D;
+            line-height: 1.15;
+            margin-bottom: 12px;
+        }
+        .section-subtitle {
+            font-size: 17px;
+            color: #20753D;
+            opacity: 0.7;
+            max-width: 560px;
+        }
+        .section-head { margin-bottom: 48px; }
+        .section-head.center { text-align: center; }
+        .section-head.center .section-subtitle { margin: 0 auto; }
 
-    .btn svg { width: 20px; height: 20px; }
+        /* Features */
+        .features { padding: 96px 0; }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+        .feature-card {
+            background: #f4fdf7;
+            border: 1px solid #e8f5ee;
+            padding: 32px 28px;
+            border-radius: 16px;
+        }
+        .feature-card .icon {
+            width: 44px;
+            height: 44px;
+            background: #20753D;
+            color: #c8ffda;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .feature-card h3 {
+            font-size: 19px;
+            font-weight: 700;
+            color: #20753D;
+            margin-bottom: 8px;
+        }
+        .feature-card p { color: #20753D; opacity: 0.72; font-size: 15.5px; }
 
-    /* Sections */
-    section { padding: 72px 0; }
+        /* Downloads */
+        .downloads { padding: 96px 0; background: #c8ffda; }
+        .downloads-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+        .download-card {
+            background: #FFFFFF;
+            padding: 28px 24px;
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+        }
+        .download-icon {
+            width: 52px;
+            height: 52px;
+            background: #f4fdf7;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #20753D;
+            margin-bottom: 20px;
+        }
+        .download-card h3 {
+            font-size: 19px;
+            font-weight: 700;
+            color: #20753D;
+            margin-bottom: 4px;
+        }
+        .download-meta {
+            font-size: 14px;
+            color: #20753D;
+            opacity: 0.6;
+            margin-bottom: 24px;
+        }
+        .download-card .btn {
+            margin-top: auto;
+            width: 100%;
+            padding: 12px 20px;
+            font-size: 15px;
+        }
 
-    .section-title {
-      font-size: clamp(24px, 3vw, 32px);
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      margin-bottom: 12px;
-    }
+        /* iOS instruction */
+        .ios-instruction {
+            margin-top: 32px;
+            background: #FFFFFF;
+            border-radius: 16px;
+            padding: 32px 36px;
+            max-width: 760px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .ios-header {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            margin-bottom: 22px;
+        }
+        .ios-icon {
+            width: 44px;
+            height: 44px;
+            background: #f4fdf7;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            color: #20753D;
+            flex-shrink: 0;
+        }
+        .ios-header h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #20753D;
+            margin-bottom: 4px;
+        }
+        .ios-header p {
+            font-size: 14.5px;
+            color: #20753D;
+            opacity: 0.7;
+        }
+        .ios-steps {
+            padding-left: 20px;
+            color: #20753D;
+            font-size: 15px;
+        }
+        .ios-steps li { margin-bottom: 8px; opacity: 0.85; }
+        .ios-steps li:last-child { margin-bottom: 0; }
+        .ios-steps a {
+            color: #20753D;
+            text-decoration: underline;
+            font-weight: 600;
+            text-underline-offset: 2px;
+        }
 
-    .section-sub {
-      color: var(--muted);
-      font-size: 17px;
-      margin-bottom: 40px;
-      max-width: 640px;
-    }
+        /* CTA */
+        .cta {
+            padding: 80px 0;
+            background: #20753D;
+            color: #FFFFFF;
+            text-align: center;
+        }
+        .cta h2 {
+            font-size: clamp(24px, 3.5vw, 34px);
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 10px;
+        }
+        .cta p { font-size: 17px; opacity: 0.85; margin-bottom: 28px; }
+        .cta .btn-group { justify-content: center; }
 
-    /* Features */
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-    }
+        /* Footer */
+        footer {
+            background: #FFFFFF;
+            padding: 36px 0;
+            border-top: 1px solid #e8f5ee;
+        }
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .footer-links { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+        .footer-links a {
+            color: #20753D;
+            text-decoration: none;
+            font-size: 15px;
+            opacity: 0.78;
+            transition: opacity 0.2s;
+        }
+        .footer-links a:hover { opacity: 1; }
+        .copyright { color: #20753D; opacity: 0.55; font-size: 14px; }
 
-    .feature {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 28px;
-      transition: box-shadow 0.2s;
-    }
-
-    .feature:hover { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06); }
-
-    .feature-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 10px;
-      background: linear-gradient(135deg, var(--blue), var(--green));
-      display: grid;
-      place-items: center;
-      margin-bottom: 16px;
-      color: #fff;
-      font-size: 22px;
-    }
-
-    .feature h3 {
-      font-size: 18px;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-
-    .feature p {
-      color: var(--muted);
-      font-size: 15px;
-    }
-
-    /* Info card */
-    .info-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 32px;
-      border-left: 4px solid var(--green);
-    }
-
-    .info-card h3 {
-      font-size: 18px;
-      font-weight: 700;
-      margin-bottom: 12px;
-    }
-
-    .info-card p, .info-card li {
-      color: var(--muted);
-      font-size: 15px;
-    }
-
-    .info-card ul { margin: 12px 0 0 20px; }
-    .info-card li { margin-bottom: 6px; }
-
-    .info-card code {
-      background: var(--bg);
-      padding: 2px 8px;
-      border-radius: 6px;
-      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
-      font-size: 14px;
-      color: var(--blue);
-    }
-
-    /* Steps */
-    .steps {
-      display: grid;
-      gap: 16px;
-      counter-reset: step;
-    }
-
-    .step {
-      display: flex;
-      gap: 20px;
-      align-items: flex-start;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 24px;
-    }
-
-    .step::before {
-      counter-increment: step;
-      content: counter(step);
-      flex-shrink: 0;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: var(--blue);
-      color: #fff;
-      display: grid;
-      place-items: center;
-      font-weight: 700;
-      font-size: 15px;
-    }
-
-    .step-body h3 {
-      font-size: 16px;
-      font-weight: 700;
-      margin-bottom: 4px;
-    }
-
-    .step-body p {
-      color: var(--muted);
-      font-size: 15px;
-    }
-
-    /* Contact */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-      margin-top: 32px;
-    }
-
-    .contact-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 24px;
-      text-decoration: none;
-      color: inherit;
-      transition: border-color 0.2s, transform 0.15s;
-      display: block;
-    }
-
-    .contact-card:hover {
-      border-color: var(--blue);
-      transform: translateY(-2px);
-    }
-
-    .contact-label {
-      font-size: 13px;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 6px;
-    }
-
-    .contact-value {
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--blue);
-      word-break: break-word;
-    }
-
-    /* Footer */
-    footer {
-      background: var(--dark);
-      color: #94a3b8;
-      padding: 40px 0;
-      text-align: center;
-      font-size: 14px;
-    }
-
-    footer strong { color: #fff; }
-
-    footer a { color: #94a3b8; text-decoration: none; }
-    footer a:hover { color: #fff; }
-
-    /* Responsive */
-    @media (max-width: 600px) {
-      .hero { padding: 56px 0 72px; }
-      section { padding: 56px 0; }
-      .btn { width: 100%; justify-content: center; }
-    }
-
-    /* Placeholder links — замените на реальные! */
-    [data-placeholder] { cursor: not-allowed; opacity: 0.7; }
-  </style>
+        /* Responsive */
+        @media (max-width: 880px) {
+            .hero-inner {
+                grid-template-columns: 1fr;
+                gap: 44px;
+                text-align: center;
+            }
+            .hero-text h1, .hero-text p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-text .btn-group { justify-content: center; }
+            /* На мобильных устройствах немного уменьшаем телефон, чтобы не было переполнения */
+            .phone {
+                transform: scale(0.9);
+                transform-origin: top center;
+                margin-bottom: -40px;
+            }
+        }
+        @media (max-width: 640px) {
+            .hero { padding: 48px 0 64px; }
+            .features, .downloads, .cta { padding: 60px 0; }
+            .header-inner { justify-content: center; }
+            nav { justify-content: center; flex-wrap: wrap; }
+            .btn { padding: 13px 22px; font-size: 15px; }
+            .ios-instruction { padding: 24px 22px; }
+        }
+        @media (max-width: 480px) {
+            .btn-group { flex-direction: column; align-items: stretch; }
+            .btn-group .btn { width: 100%; }
+            .footer-inner { flex-direction: column; text-align: center; }
+            .footer-links { justify-content: center; }
+        }
+    </style>
 </head>
 <body>
 
-  <!-- HERO -->
-  <header class="hero">
-    <div class="container hero-content">
-      <div class="logo">
-        <span class="logo-mark">B</span>
-        BashLearn
-      </div>
-      <h1>Изучайте башкирский язык — интерактивно и бесплатно</h1>
-      <p>
-        BashLearn — бесплатное кроссплатформенное приложение для изучения башкирского языка.
-        Теория, звуки и практические задания в одном месте.
-      </p>
-      <div class="btn-group">
-        <!-- TODO: замените href на прямую ссылку к .apk -->
-        <a class="btn btn-primary" href="https://github.com/Adil-Master/BashLearn/releases/download/v0.1/DONT.T_DOWNLOAD.xcf" data-placeholder="apk">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-            <polyline points="7 10 12 15 17 10"/>
-            <line x1="12" y1="15" x2="12" y2="3"/>
-          </svg>
-          Скачать демо (APK)
-        </a>
-        <!-- TODO: замените href на ссылку на форму фидбека -->
-        <a class="btn btn-secondary" href="#" data-placeholder="feedback">
-          Оставить отзыв
-        </a>
-      </div>
-    </div>
-  </header>
+    <header>
+        <div class="container header-inner">
+            <a href="/" class="logo">Bash<span>Learn</span></a>
+            <nav>
+                <a href="#download">Скачать</a>
+                <a href="/about">О нас</a>
+            </nav>
+        </div>
+    </header>
 
-  <!-- FEATURES -->
-  <section>
-    <div class="container">
-      <h2 class="section-title">Что внутри</h2>
-      <p class="section-sub">Короткие уроки, которые можно проходить с телефона в любое время.</p>
-      <div class="features">
-        <div class="feature">
-          <div class="feature-icon">📖</div>
-          <h3>Теория с озвучкой</h3>
-          <p>Листаемые страницы с примерами и воспроизведением звуков.</p>
-        </div>
-        <div class="feature">
-          <div class="feature-icon">✅</div>
-          <h3>Шесть типов заданий</h3>
-          <p>Квизы, ввод текста, составление предложений, сопоставление слов и другие.</p>
-        </div>
-        <div class="feature">
-          <div class="feature-icon">📱</div>
-          <h3>Кроссплатформенность</h3>
-          <p>Работает на Android, iOS, Windows, macOS и Linux.</p>
-        </div>
-        <div class="feature">
-          <div class="feature-icon">🎓</div>
-          <h3>Научная основа</h3>
-          <p>По методике «Башкирский язык за 25 уроков» Ф. Г. Хисамитдиновой.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    <section class="hero">
+        <div class="container hero-inner">
+            <div class="hero-text">
+                <div class="hero-tag">Уроки · Аудио · Тесты</div>
+                <h1>Башкирский язык — проще, чем кажется</h1>
+                <p>
+                    Интерактивные уроки, аудиофрагменты и разнообразные тесты. 
+                    BashLearn помогает разобраться в грамматике и заговорить 
+                    по-башкирски уже с первой недели.
+                </p>
+                <div class="btn-group">
+                    <a href="#download" class="btn btn-primary">
+                        <i class="fas fa-arrow-down"></i> Скачать
+                    </a>
+                    <a href="/web/" class="btn btn-outline">
+                        <i class="fas fa-globe"></i> Открыть в браузере
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="phone">
+                    <div class="phone-screen">
+                        <!-- Top Bar -->
+                        <div class="app-top-bar">
+                            <div class="app-menu-btn">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <div class="app-title">BashLearn</div>
+                        </div>
 
-  <!-- DEMO TERMS -->
-  <section style="background: #fff;">
-    <div class="container">
-      <h2 class="section-title">О демо-версии</h2>
-      <p class="section-sub">Это ранняя сборка для экспертного тестирования. Не для широкого распространения.</p>
-      <div class="info-card">
-        <h3>Важно знать</h3>
-        <ul>
-          <li><strong>Срок действия:</strong> демо-версия работает до <strong>1 декабря 2026 года</strong> (может быть уточнено).</li>
-          <li><strong>После истечения срока:</strong> приложение предложит связаться с разработчиком за обновлением.</li>
-          <li><strong>Распространение:</strong> пожалуйста, не передавайте сборку третьим лицам.</li>
-          <li><strong>Обратная связь:</strong> любые замечания, баги и предложения — через форму ниже или в Telegram.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+                        <!-- Welcome Card -->
+                        <div class="app-welcome">
+                            <div class="app-star-badge">
+                                <i class="fas fa-star"></i>
+                                <span>2</span>
+                            </div>
+                            <div class="app-welcome-text">
+                                <div class="greeting">Добро пожаловать!</div>
+                                <div class="app-streak">
+                                    <i class="fas fa-fire"></i> 70
+                                </div>
+                            </div>
+                        </div>
 
-  <!-- INSTALL -->
-  <section>
-    <div class="container">
-      <h2 class="section-title">Как установить</h2>
-      <p class="section-sub">Приложение устанавливается вне магазина — это нормально для раннего тестирования.</p>
-      <div class="steps">
-        <div class="step">
-          <div class="step-body">
-            <h3>Скачайте APK-файл</h3>
-            <p>Нажмите кнопку «Скачать демо (APK)» выше или в начале страницы.</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-body">
-            <h3>Разрешите установку из неизвестных источников</h3>
-            <p>При первом запуске система может предупредить об установке из неизвестного источника — это ожидаемо, разрешите установку для вашего браузера или файлового менеджера.</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-body">
-            <h3>Откройте приложение и пройдите первый урок</h3>
-            <p>Если что-то не работает — напишите нам, мы постараемся оперативно ответить.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+                        <!-- Lesson Card -->
+                        <div class="app-lesson-card">
+                            <div class="app-lesson-header">
+                                Урок 1. Особенности<br>башкирского языка
+                            </div>
+                            <div class="app-lesson-body">
+                                <div>
+                                    Знакомство с уникальными звуками и грамматическим строем башкирского языка. Алфавит, гласные и согласные звуки, аффиксы.
+                                </div>
+                                <table class="app-stats-table">
+                                    <tr>
+                                        <td>Новые слова</td>
+                                        <td>4</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Грамматика</td>
+                                        <td>3</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Произношение</td>
+                                        <td>2</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Фразы</td>
+                                        <td>2</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
 
-  <!-- CONTACT -->
-  <section style="background: #fff;">
-    <div class="container">
-      <h2 class="section-title">Связаться с нами</h2>
-      <p class="section-sub">По вопросам тестирования, обновлений и сотрудничества.</p>
-      <div class="contact-grid">
-        <!-- TODO: замените на реальные контакты -->
-        <a class="contact-card" href="#" data-placeholder="telegram">
-          <div class="contact-label">Telegram</div>
-          <div class="contact-value">@bashlearn_dev</div>
-        </a>
-        <a class="contact-card" href="#" data-placeholder="email">
-          <div class="contact-label">Email</div>
-          <div class="contact-value">dev@bashlearn.example</div>
-        </a>
-        <a class="contact-card" href="#" data-placeholder="form">
-          <div class="contact-label">Форма обратной связи</div>
-          <div class="contact-value">Google Forms →</div>
-        </a>
-      </div>
-    </div>
-  </section>
+                        <!-- Bottom Nav -->
+                        <div class="app-bottom-nav">
+                            <div class="app-nav-arrow"><i class="fas fa-chevron-left"></i></div>
+                            <div class="app-nav-btn">Пройти урок</div>
+                            <div class="app-nav-arrow"><i class="fas fa-chevron-right"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <p>
-        © 2026 <strong>BashLearn</strong>. Разработчик — Янгиров А. А.
-      </p>
-      <p style="margin-top: 8px;">
-        Методическая основа — «Башкирский язык за 25 уроков» Ф. Г. Хисамитдиновой.
-      </p>
-    </div>
-  </footer>
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-head">
+                <h2 class="section-title">Что внутри приложения</h2>
+                <p class="section-subtitle">Продуманная структура для эффективного изучения языка.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="icon"><i class="fas fa-book-open"></i></div>
+                    <h3>Интерактивные уроки</h3>
+                    <p>Понятная теория с примерами. Изучайте новые слова, грамматику и фразы шаг за шагом.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon"><i class="fas fa-headphones"></i></div>
+                    <h3>Аудио и произношение</h3>
+                    <p>Слушайте правильное произношение носителей. В приложении есть аудиофрагменты к каждому уроку.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon"><i class="fas fa-check-circle"></i></div>
+                    <h3>Тесты и практика</h3>
+                    <p>Закрепляйте материал с помощью разнообразных тестов и интерактивных заданий после каждого урока.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="downloads" id="download">
+        <div class="container">
+            <div class="section-head center">
+                <h2 class="section-title">Скачать BashLearn</h2>
+                <p class="section-subtitle">Выберите свою платформу или откройте онлайн-версию прямо в браузере.</p>
+            </div>
+
+            <div class="downloads-grid">
+                <div class="download-card">
+                    <div class="download-icon"><i class="fab fa-android"></i></div>
+                    <h3>Android</h3>
+                    <div class="download-meta">APK · Версия 1.0</div>
+                    <a href="#" class="btn btn-primary">
+                        <i class="fas fa-download"></i> Скачать APK
+                    </a>
+                </div>
+                <div class="download-card">
+                    <div class="download-icon"><i class="fab fa-windows"></i></div>
+                    <h3>Windows</h3>
+                    <div class="download-meta">Установщик .exe · Версия 1.0</div>
+                    <a href="#" class="btn btn-primary">
+                        <i class="fas fa-download"></i> Скачать для Windows
+                    </a>
+                </div>
+                <div class="download-card">
+                    <div class="download-icon"><i class="fab fa-linux"></i></div>
+                    <h3>Linux</h3>
+                    <div class="download-meta">AppImage · Версия 1.0</div>
+                    <a href="#" class="btn btn-primary">
+                        <i class="fas fa-download"></i> Скачать для Linux
+                    </a>
+                </div>
+                <div class="download-card">
+                    <div class="download-icon"><i class="fas fa-globe"></i></div>
+                    <h3>Веб-версия</h3>
+                    <div class="download-meta">Работает в любом браузере</div>
+                    <a href="/web/" class="btn btn-outline">
+                        <i class="fas fa-external-link-alt"></i> Открыть
+                    </a>
+                </div>
+            </div>
+
+            <div class="ios-instruction">
+                <div class="ios-header">
+                    <div class="ios-icon"><i class="fab fa-apple"></i></div>
+                    <div>
+                        <h3>Установка на iPhone и iPad</h3>
+                        <p>Скачивать из App Store ничего не нужно — добавьте веб-версию на главный экран.</p>
+                    </div>
+                </div>
+                <ol class="ios-steps">
+                    <li>Откройте <a href="/web/">веб-версию</a> в браузере <strong>Safari</strong>.</li>
+                    <li>Нажмите кнопку <strong>«Поделиться»</strong> в нижней панели.</li>
+                    <li>Выберите <strong>«На экран "Домой"»</strong>.</li>
+                    <li>Нажмите <strong>«Добавить»</strong> — иконка появится на главном экране.</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Есть вопросы или идеи?</h2>
+            <p>Напишите нам — мы читаем все сообщения лично.</p>
+            <div class="btn-group">
+                <a href="mailto:bashlearn@yandex.ru" class="btn btn-light">
+                    <i class="fas fa-envelope"></i> bashlearn@yandex.ru
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-inner">
+            <div class="logo" style="font-size: 20px;">Bash<span>Learn</span></div>
+            <div class="footer-links">
+                <a href="/about">О нас</a>
+                <a href="mailto:bashlearn@yandex.ru">Контакты</a>
+                <a href="/terms">Пользовательское соглашение</a>
+            </div>
+            <div class="copyright">© 2026 BashLearn</div>
+        </div>
+    </footer>
 
 </body>
 </html>
