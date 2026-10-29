@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>О нас — BashLearn</title>
+
+    <!-- Шрифт Tilda Sans + запасной -->
+    <style>
+        @import url('https://static.tildacdn.com/css/tilda-sans.css');
+        body {
+            font-family: 'Tilda Sans', 'Inter', sans-serif;
+        }
+    </style>
+
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tilda Sans', 'Inter', sans-serif; /* Гарантируем шрифт для всех элементов */
+        }
+
+        body {
+            background: #FFFFFF;
+            color: #20753D;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Шапка */
+        header {
+            background: #FFFFFF;
+            padding: 20px 0;
+            border-bottom: 3px solid #c8ffda;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: #20753D;
+            text-decoration: none;
+        }
+        .logo span {
+            color: #52D47A;
+        }
+
+        nav a {
+            margin-left: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            color: #20753D;
+            transition: color 0.2s;
+        }
+        nav a:hover {
+            color: #52D47A;
+        }
+
+        /* Герой страницы */
+        .page-hero {
+            padding: 80px 0 60px;
+            background: #c8ffda;
+            text-align: center;
+        }
+
+        .page-hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+            color: #20753D;
+            margin-bottom: 20px;
+        }
+
+        .page-hero p {
+            font-size: 20px;
+            color: #20753D;
+            opacity: 0.85;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Секции */
+        .section-title {
+            font-size: 36px;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #20753D;
+        }
+
+        .about-section {
+            padding: 80px 0;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .about-card {
+            background: #c8ffda;
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .about-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(32, 117, 61, 0.10);
+        }
+
+        .about-card .icon {
+            font-size: 48px;
+            color: #20753D;
+            margin-bottom: 20px;
+        }
+
+        .about-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #20753D;
+        }
+
+        .about-card p {
+            color: #20753D;
+            opacity: 0.8;
+        }
+
+        /* Команда */
+        .team-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 60px;
+            margin-top: 20px;
+        }
+
+        .team-member {
+            text-align: center;
+            min-width: 200px;
+        }
+
+        .team-member .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: #52D47A;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: #FFFFFF;
+            box-shadow: 0 8px 20px rgba(32, 117, 61, 0.15);
+        }
+
+        .team-member h4 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #20753D;
+            margin-bottom: 4px;
+        }
+
+        .team-member p {
+            color: #20753D;
+            opacity: 0.7;
+            font-size: 16px;
+        }
+
+        /* Контакты */
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 18px;
+            color: #20753D;
+        }
+
+        .contact-item i {
+            font-size: 28px;
+            color: #52D47A;
+        }
+
+        /* Футер */
+        footer {
+            background: #FFFFFF;
+            padding: 40px 0;
+            border-top: 3px solid #c8ffda;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-links a {
+            margin: 0 15px;
+            color: #20753D;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .footer-links a:hover {
+            color: #52D47A;
+        }
+
+        .copyright {
+            color: #20753D;
+            opacity: 0.6;
+            font-size: 14px;
+        }
+
+        /* Адаптив */
+        @media (max-width: 768px) {
+            .page-hero h1 {
+                font-size: 32px;
+            }
+            nav a {
+                margin-left: 15px;
+            }
+            .section-title {
+                font-size: 28px;
+            }
+            .team-member .avatar {
+                width: 90px;
+                height: 90px;
+                font-size: 36px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-inner {
+                flex-direction: column;
+                gap: 15px;
+            }
+            nav a {
+                margin: 0 10px;
+            }
+            .footer-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-links a {
+                display: inline-block;
+                margin: 5px 10px;
+            }
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Шапка -->
+    <header>
+        <div class="container header-inner">
+            <a href="index.html" class="logo">Bash<span>Learn</span></a>
+            <nav>
+                <a href="index.html">Главная</a>
+                <a href="index.html#download">Скачать</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Герой -->
+    <section class="page-hero" id="about">
+        <div class="container">
+            <h1>О проекте BashLearn</h1>
+            <p>
+                Мы создаём бесплатный и доступный способ изучения башкирского языка для всех желающих.
+                Наша миссия — сохранить и популяризовать башкирскую культуру через современные технологии.
+            </p>
+        </div>
+    </section>
+
+    <!-- Наши ценности -->
+    <section class="about-section">
+        <div class="container">
+            <h2 class="section-title">Наши ценности</h2>
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="icon"><i class="fas fa-heart"></i></div>
+                    <h3>Любовь к языку</h3>
+                    <p>Мы верим, что язык — это душа народа. BashLearn создан с искренней любовью к башкирскому языку и культуре.</p>
+                </div>
+                <div class="about-card">
+                    <div class="icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h3>Доступное образование</h3>
+                    <p>Мы делаем обучение бесплатным, чтобы каждый мог прикоснуться к башкирскому языку независимо от дохода.</p>
+                </div>
+                <div class="about-card">
+                    <div class="icon"><i class="fas fa-users"></i></div>
+                    <h3>Сообщество</h3>
+                    <p>Мы объединяем людей, говорящих на башкирском, и тех, кто хочет его выучить. Вместе мы сильнее.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Команда -->
+    <section class="about-section" id="team" style="background: #c8ffda; padding: 80px 0;">
+        <div class="container">
+            <h2 class="section-title">Наша команда</h2>
+            <p style="text-align: center; max-width: 600px; margin: -20px auto 40px; color: #20753D; opacity: 0.8;">
+                Энтузиасты, лингвисты и разработчики, объединённые одной целью.
+            </p>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="avatar"><i class="fas fa-user-circle"></i></div>
+                    <h4>Янгиров Адиль</h4>
+                    <p>Программист, разработчик приложения</p>
+                </div>
+                <div class="team-member">
+                    <div class="avatar"><i class="fas fa-user-circle"></i></div>
+                    <h4>Аюпов Рифат</h4>
+                    <p>Автор проекта</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты -->
+    <section class="about-section" id="contact">
+        <div class="container">
+            <h2 class="section-title">Свяжитесь с нами</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>bashlearn@yandex.ru</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Уфа, Россия</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer>
+        <div class="container footer-inner">
+            <div class="logo" style="font-size: 20px;">Bash<span>Learn</span></div>
+            <div class="footer-links">
+                <a href="about.html">О нас</a>
+                <a href="mailto:bashlearn@yandex.ru">Контакты</a>
+                <a href="terms.html">Пользовательское соглашение</a>
+            </div>
+            <div class="copyright">© 2026 BashLearn</div>
+        </div>
+    </footer>
+
+</body>
+</html>
